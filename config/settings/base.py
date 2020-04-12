@@ -5,6 +5,8 @@ from pathlib import Path
 
 import environ
 
+from scripts.manage_secret_key import manage_secret_key
+
 ROOT_DIR = Path(__file__).parents[2]
 # dreamway_team/)
 APPS_DIR = ROOT_DIR / "dreamway_team"
@@ -17,6 +19,7 @@ if READ_DOT_ENV_FILE:
 
 # GENERAL
 # ------------------------------------------------------------------------------
+SECRET_KEY = manage_secret_key()
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = env.bool("DJANGO_DEBUG", False)
 # Local time zone. Choices are
@@ -269,3 +272,4 @@ SOCIALACCOUNT_ADAPTER = "dreamway_team.users.adapters.SocialAccountAdapter"
 # ------------------------------------------------------------------------------
 
 SITE_TITLE = 'DreamWay'
+LOGO_TILE = 'Dream Way'
