@@ -4,12 +4,12 @@ import pexpect
 
 
 class Pexpect:
-    def __init__(self, host, default_expect=']#', timeout=300):
+    def __init__(self, host, default_expect=']#', timeout=300, initial_expect='~#'):
         self.host = host
         self.default_expect = default_expect
         self.child = pexpect.spawn(f'ssh {host}', timeout=timeout, encoding='utf-8')
         self.child.logfile = sys.stdout
-        self.child.expect(default_expect)
+        self.child.expect(initial_expect)
 
     def cmd(self, cmd, expect=None, timeout=None):
         if not expect:
