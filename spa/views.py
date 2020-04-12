@@ -4,7 +4,8 @@ from django.shortcuts import render
 
 def index_page(request):
     context = {
-        'title': settings.SITE_TITLE
+        'title': settings.SITE_TITLE,
+        'logo': settings.LOGO_TILE
     }
     return render(request, 'pages/index.html', context)
 

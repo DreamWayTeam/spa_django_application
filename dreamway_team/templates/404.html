@@ -1,9 +1,16 @@
-{% extends "base.html" %}
+{% load static %}
+<link rel="icon" href="{% static 'images/favicons/favicon.png' %}" type="image/png" sizes="16x16">
+<title>404 Forbidden</title>
+<link rel="stylesheet" href="{% static 'css/error.css' %}">
 
-{% block title %}Page not found{% endblock %}
+<div class="error-page">
+  <div>
+    <h1 data-h1="404">404</h1>
+    <p data-p="NOT FOUND">NOT FOUND</p>
+  </div>
+</div>
+<div id="particles-js"></div>
+<a class="back" href="{% url 'spa:index' %}">Home</a>
 
-{% block content %}
-<h1>Page not found</h1>
-
-<p>This is not the page you were looking for.</p>
-{% endblock content %}
+<script src="{% static 'js/particles.min.js' %}"></script>
+<script src="{% static 'js/error.js' %}"></script>

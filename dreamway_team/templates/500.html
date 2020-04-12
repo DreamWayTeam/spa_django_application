@@ -1,13 +1,16 @@
-{% extends "base.html" %}
+{% load static %}
+<link rel="icon" href="{% static 'images/favicons/favicon.png' %}" type="image/png" sizes="16x16">
+<title>500 Server error</title>
+<link rel="stylesheet" href="{% static 'css/error.css' %}">
 
-{% block title %}Server Error{% endblock %}
+<div class="error-page">
+  <div>
+    <h1 data-h1="500">500</h1>
+    <p data-p="SERVER ERROR">SERVER ERROR</p>
+  </div>
+</div>
+<div id="particles-js"></div>
+<a class="back" href="{% url 'spa:index' %}">Home</a>
 
-{% block content %}
-<h1>Ooops!!! 500</h1>
-
-<h3>Looks like something went wrong!</h3>
-
-<p>We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, try refreshing.</p>
-{% endblock content %}
-
-
+<script src="{% static 'js/particles.min.js' %}"></script>
+<script src="{% static 'js/error.js' %}"></script>

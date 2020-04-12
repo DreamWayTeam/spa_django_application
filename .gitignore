@@ -341,3 +341,4 @@ dreamway_team/media/
 /.idea/modules.xml
 /.idea/vcs.xml
 /.idea/webResources.xml
+/scripts/secret_key.py
