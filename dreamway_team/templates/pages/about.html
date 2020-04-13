@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
     <!-- <div class="js-fullheight"> -->
     <div class="hero-wrap js-fullheight">
@@ -8,7 +9,7 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>About</span></p>
+            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="{% url 'spa:index' %}">Home</a></span> <span>About</span></p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">About Us</h1>
           </div>
         </div>
@@ -20,7 +21,7 @@
         <div class="container-fluid" data-scrollax-parent="true">
           <div class="row mt-5 d-flex justify-content-center">
             <div class="col-md-8 text-center heading-section ftco-animate">
-              <h2 class="h1">UI/UX, visual, <strong class="px-3">Web designer</strong> with more than 12 years of experience in designing websites and mobile apps.</h2>
+              <h2 class="h1">Big Data, Machine Learning, Web Development and Data Science with more than 5 years of experience in designing and developing apps.</h2>
               <p><a href="#" class="btn btn-primary mt-3 py-3 px-5">Get in touch</a></p>
             </div>
           </div>
@@ -34,37 +35,77 @@
           <div class="col-md-7 text-center heading-section ftco-animate">
             <span class="subheading">Team</span>
             <h2 class="mb-4">Our Team</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+            <p>Our team consists of highly motivated and highly professional developers with extraordinary experience in such areas as: web, big data, machine learning, data scraping and much more. Each of our specialists has many years of experience in all stages of development and product delivery. Our team is ready to fulfill your most courageous dreams.</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-4 mb-5 ftco-animate">
             <div class="block-10">
               <div class="person-info mb-2">
-                <span class="name">Jacob Smith</span>
-                <span class="position">Co Designer</span>
+                <span class="name">Igor Matchenko</span>
+                <span class="position">Co-Founder/Lead Software Engineer</span>
               </div>
-              <img src="images/person_1.jpg" alt="" class="img-fluid mb-3">
+              <img src="{% static 'images/person_1.jpg' %}" alt="" class="img-fluid mb-3">
               <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
             </div>
           </div>
           <div class="col-md-4 mb-5 ftco-animate">
             <div class="block-10">
               <div class="person-info mb-2">
-                <span class="name">Aldin Henderson</span>
-                <span class="position">Web Developer</span>
+                <span class="name">Denys Terentiev</span>
+                <span class="position">Co-Founder/Lead Software Engineer</span>
               </div>
-              <img src="images/person_3.jpg" alt="" class="img-fluid mb-3">
+              <img src="{% static 'images/person_2.jpg' %}" alt="" class="img-fluid mb-3">
               <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
             </div>
           </div>
           <div class="col-md-4 mb-5 ftco-animate">
             <div class="block-10">
               <div class="person-info mb-2">
-                <span class="name">Mark Willis</span>
-                <span class="position">Lead Web Developer</span>
+                <span class="name">Stanislav Mykhailov</span>
+                <span class="position">Co-Founder/Python Software Engineer</span>
               </div>
-              <img src="images/person_2.jpg" alt="" class="img-fluid mb-3">
+              <img src="{% static 'images/person_4.jpg' %}" alt="" class="img-fluid mb-3">
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5 ftco-animate">
+            <div class="block-10">
+              <div class="person-info mb-2">
+                <span class="name">Maxim Lomaka</span>
+                <span class="position">Co-Founder/Machine Learning Engineer</span>
+              </div>
+              <img src="{% static 'images/person_3.jpg' %}" alt="" class="img-fluid mb-3">
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5 ftco-animate">
+            <div class="block-10">
+              <div class="person-info mb-2">
+                <span class="name">Yuriy Senetskiy</span>
+                <span class="position">Senior Python Engineer</span>
+              </div>
+              <img src="{% static 'images/person_5.jpg' %}" alt="" class="img-fluid mb-3">
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5 ftco-animate">
+            <div class="block-10">
+              <div class="person-info mb-2">
+                <span class="name">Yura Braiko</span>
+                <span class="position">Senior Machine Learning and Data Science Engineer</span>
+              </div>
+              <img src="{% static 'images/person_7.jpg' %}" alt="" class="img-fluid mb-3">
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-5 ftco-animate">
+            <div class="block-10">
+              <div class="person-info mb-2">
+                <span class="name">Denis Repin</span>
+                <span class="position">Python Engineer</span>
+              </div>
+              <img src="{% static 'images/person_6.jpg' %}" alt="" class="img-fluid mb-3">
               <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
             </div>
           </div>
@@ -78,7 +119,6 @@
           <div class="col-md-7 text-center heading-section ftco-animate">
             <span class="subheading">Customer Says</span>
             <h2 class="mb-4">Our satisfied customer says</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
           </div>
         </div>
         <div class="row ftco-animate">
