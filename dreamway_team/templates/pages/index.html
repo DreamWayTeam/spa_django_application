@@ -217,26 +217,17 @@
           </div>
         </div>
         <div class="row">
+          {% for project in projects %}
           <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="https://getcarrier.io/" class="image" style="background-image: url({% static 'images/work-1.jpg' %}); " data-scrollax=" properties: { translateY: '-20%'}">
-            </a>
+            <a href="{{ project.url }}" class="image" style="background-image: url({{ project.image.url }}); " data-scrollax=" properties: { translateY: '-20%'}"></a>
             <div class="text">
-              <h4 class="subheading">Application</h4>
-              <h2 class="heading"><a href="portfolio.html">Continuous testing toolkit</a></h2>
-              <p>Continuous test execution platform. Set of tools and practices to integrate non-functional tests into delivery pipeline and organize effective feedback loop</p>
-              <p><a href="https://getcarrier.io/" class="btn btn-primary px-4">View</a></p>
+              <h4 class="subheading">{{ project.category }}</h4>
+              <h2 class="heading"><a href="{{ project.url }}">{{ project.title }}</a></h2>
+              <p>{{ project.description }}</p>
+              <p><a href="{{ project.url }}" class="btn btn-primary px-4">View</a></p>
             </div>
           </div>
-          <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="https://github.com/nylas/exchangelib" class="image image-2 order-2" style="background-image: url({% static 'images/work-2.jpg' %});" data-scrollax=" properties: { translateY: '-20%'}"></a>
-            <div class="text order-1">
-              <h4 class="subheading">Application</h4>
-              <h2 class="heading"><a href="portfolio.html">Python client for Microsoft Exchange Web Services (EWS)</a></h2>
-              <p>This module provides an well-performing, well-behaving, platform-independent and simple interface for communicating with a Microsoft Exchange 2007-2016 Server or Office365 using Exchange Web Services (EWS).
-                It currently implements autodiscover, and functions for searching, creating, updating, deleting, exporting and uploading calendar, mailbox, task, contact and distribution list items.</p>
-              <p><a href="https://github.com/nylas/exchangelib" class="btn btn-primary px-4">View Portfolio</a></p>
-            </div>
-          </div>
+          {% endfor %}
         </div>
         <div class="row mt-5">
           <div class="col text-center">
