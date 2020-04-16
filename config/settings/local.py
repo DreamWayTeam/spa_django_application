@@ -51,3 +51,5 @@ INSTALLED_APPS += ['django_extensions']  # noqa F405
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+DEV_SUPERUSER_USERNAME = env('DEV_SUPERUSER_USERNAME')
+DEV_SUPERUSER_PASSWORD = env('DEV_SUPERUSER_PASSWORD')

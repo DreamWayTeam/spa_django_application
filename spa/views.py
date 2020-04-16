@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.shortcuts import render
 
+from .models import Project
+
 BASE_CONTEXT = {
         'title': settings.SITE_TITLE,
         'logo': settings.LOGO_TILE
@@ -9,6 +11,7 @@ BASE_CONTEXT = {
 
 def index_page(request):
     context = BASE_CONTEXT.copy()
+    context['projects'] = Project.objects.all()
     return render(request, 'pages/index.html', context)
 
 
@@ -24,6 +27,7 @@ def about_page(request):
 
 def portfolio_page(request):
     context = BASE_CONTEXT.copy()
+    context['projects'] = Project.objects.all()
     return render(request, 'pages/portfolio.html', context)
 
 
