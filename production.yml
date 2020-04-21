@@ -31,6 +31,8 @@ services:
       - ./.envs/.production/.postgres
 
   traefik:
+    networks:
+      - traefik
     build:
       context: .
       dockerfile: ./compose/production/traefik/Dockerfile
