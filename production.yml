@@ -55,7 +55,10 @@ services:
       - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./dreamway_team/static:/static
     labels:
-      - "traefik.enable=true"
-      - "traefik.backend=nginx"
-      - "traefik.frontend.rule=Host:dreamway.team;PathPrefix:/static"
-      - "traefik.port=80"
+      - traefik.http.routers.static-files.rule=(Host(`dreamway.team`) && Path(`/static`))
+      - traefik.http.routers.static-files.tls=true
+      - traefik.http.routers.static-files.tls.certresolver=le
+      - traefik.http.services.static-files.loadbalancer.server.port=80
+      - traefik.http.middlewares.static-files-stripprefix.stripprefix.prefixes=/static
+      - traefik.http.routers.static-files.middlewares=gzip@docker,static-files-stripprefix@docker
+
