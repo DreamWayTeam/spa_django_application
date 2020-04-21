@@ -56,18 +56,3 @@ services:
     volumes:
       - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./dreamway_team/static:/static
-    labels:
-      - traefik.backend=nginx
-      - traefik.frontend.rule=(Host(`dreamway.team`) && Path(`/static`))
-      - traefik.docker.network=web
-      - traefik.port=80
-    networks:
-      - internal
-      - web
-
-networks:
-  web:
-    external: true
-  internal:
-    external: false
-

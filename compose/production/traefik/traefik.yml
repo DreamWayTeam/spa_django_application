@@ -31,6 +31,12 @@ http:
         - csrf
       service: django
 
+    staticFiles:
+      rule: "Host(`dreamway.team`) && Path(`/static`)"
+      entryPoints:
+        - web
+      service: nginx
+
     web-secure-router:
       rule: "Host(`dreamway.team`)"
       entryPoints:
