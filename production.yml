@@ -58,7 +58,7 @@ services:
       - ./dreamway_team/static:/static
     labels:
       - traefik.backend=nginx
-      - traefik.frontend.rule=Host:dreamway.team
+      - traefik.frontend.rule=(Host(`dreamway.team`) && Path(`/static`))
       - traefik.docker.network=web
       - traefik.port=80
     networks:
