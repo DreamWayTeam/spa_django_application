@@ -43,6 +43,11 @@ services:
     ports:
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
+    labels:
+        - "traefik.enable=true"
+        - "traefik.backend=nginx"
+        - "traefik.frontend.rule=Host:dreamway.team;PathPrefix:/static"
+        - "traefik.port=80"
 
   redis:
     image: redis:5.0
