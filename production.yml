@@ -54,3 +54,9 @@ services:
     volumes:
       - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./dreamway_team/static:/static
+    labels:
+      - "traefik.backend=nginx"
+      - "traefik.frontend.rule=PathStrip: /static"
+      - "traefik.port=80"
+      - "traefix.port=443"
+      - "traefik.frontend.entryPoints=http"
