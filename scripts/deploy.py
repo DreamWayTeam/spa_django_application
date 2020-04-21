@@ -5,7 +5,7 @@ from utils import Pexpect
 
 def deploy():
     DEPLOY_HOST = os.getenv('DEPLOY_HOST')
-    DOCKER_COMPOSE_FILE = os.getenv('DOCKER_COMPOSE_FILE', 'local.yml')
+    DOCKER_COMPOSE_FILE = os.getenv('DOCKER_COMPOSE_FILE', 'production.yml')
     DOCKER_COMPOSE = f'docker-compose -f {DOCKER_COMPOSE_FILE}'
     EXPECT_VALUE = os.getenv('EXPECT_VALUE', '~/spa_django_application#')
 
