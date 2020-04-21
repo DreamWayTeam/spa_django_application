@@ -53,3 +53,4 @@ services:
       - django
     volumes:
       - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./dreamway_team/static:/static
