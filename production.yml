@@ -1,63 +1,62 @@
 version: '3'
-#
-#volumes:
-#  production_postgres_data: {}
-#  production_postgres_data_backups: {}
-#  production_traefik: {}
-#
+
+volumes:
+  production_postgres_data: {}
+  production_postgres_data_backups: {}
+  production_traefik: {}
+
 services:
-#  django:
-#    build:
-#      context: .
-#      dockerfile: ./compose/production/django/Dockerfile
-#    image: dreamway_team_production_django
-#    depends_on:
-#      - postgres
-#      - redis
-#    env_file:
-#      - ./.envs/.production/.django
-#      - ./.envs/.production/.postgres
-#    command: /start
-#
-#  postgres:
-#    build:
-#      context: .
-#      dockerfile: ./compose/production/postgres/Dockerfile
-#    image: dreamway_team_production_postgres
-#    volumes:
-#      - production_postgres_data:/var/lib/postgresql/data
-#      - production_postgres_data_backups:/backups
-#    env_file:
-#      - ./.envs/.production/.postgres
-#
-#  traefik:
-#    build:
-#      context: .
-#      dockerfile: ./compose/production/traefik/Dockerfile
-#    image: dreamway_team_production_traefik
-#    depends_on:
-#      - django
-#      - nginx
-#    volumes:
-#      - production_traefik:/etc/traefik/acme
-#    ports:
-#      - "0.0.0.0:80:80"
-#      - "0.0.0.0:443:443"
-#
-#  redis:
-#    image: redis:5.0
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/production/django/Dockerfile
+    image: dreamway_team_production_django
+    depends_on:
+      - postgres
+      - redis
+    env_file:
+      - ./.envs/.production/.django
+      - ./.envs/.production/.postgres
+    command: /start
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./compose/production/postgres/Dockerfile
+    image: dreamway_team_production_postgres
+    volumes:
+      - production_postgres_data:/var/lib/postgresql/data
+      - production_postgres_data_backups:/backups
+    env_file:
+      - ./.envs/.production/.postgres
+
+  traefik:
+    build:
+      context: .
+      dockerfile: ./compose/production/traefik/Dockerfile
+    image: dreamway_team_production_traefik
+    depends_on:
+      - django
+      - nginx
+    volumes:
+      - production_traefik:/etc/traefik/acme
+    ports:
+      - "0.0.0.0:80:80"
+      - "0.0.0.0:443:443"
+
+  redis:
+    image: redis:5.0
 
   nginx:
     image: nginx:1.17.4
-#    depends_on:
-#      - django
+    depends_on:
+      - django
     volumes:
       - ./config/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./dreamway_team/static:/static
-#    labels:
-#      - "traefik.enable=true"
-#      - "traefik.backend=nginx"
-#      - "traefik.frontend.rule=Host:dreamway.team;PathPrefix:/static"
-#      - "traefik.port=80"
-    ports:
-      - "80:80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.backend=nginx"
+      - "traefik.frontend.rule=Host:dreamway.team;PathPrefix:/static"
+      - "traefik.domain=dreamway.team"
+      - "traefik.frontend.entryPoints=web"
