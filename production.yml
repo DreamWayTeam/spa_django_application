@@ -59,3 +59,5 @@ services:
 #      - "traefik.backend=nginx"
 #      - "traefik.frontend.rule=Host:dreamway.team;PathPrefix:/static"
 #      - "traefik.port=80"
+    ports:
+      - "80:80"
