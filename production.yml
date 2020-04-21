@@ -35,8 +35,6 @@ services:
       context: .
       dockerfile: ./compose/production/traefik/Dockerfile
     image: dreamway_team_production_traefik
-    networks:
-      - web
     depends_on:
       - django
       - nginx
