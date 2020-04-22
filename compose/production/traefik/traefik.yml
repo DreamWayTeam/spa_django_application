@@ -42,6 +42,10 @@ http:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
 
+    static-files:
+      rule: "Path(`/static`)"
+      service: nginx
+
   middlewares:
     redirect:
       # https://docs.traefik.io/master/middlewares/redirectscheme/
